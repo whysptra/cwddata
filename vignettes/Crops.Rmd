@@ -1,0 +1,45 @@
+---
+title: "Our World in Data: Key Crop Yields"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Our World in Data: Key Crop Yields}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(cwdata)
+library(tibble)
+library(ggplot2)
+```
+
+
+The **cwddata** package provide a single dataset named `key_crop_yields`, which contain crop yields for countries over time. Yields  are measured in tonnes per hectare for seven crops.
+
+```{r}
+key_crop_yields
+```
+
+```{r plot-total-fields}
+library(dplyr)
+key_crop_yields %>%
+  filter(entity == "Australia") %>%
+  ggplot(aes(x=year,
+             y=tonnes_per_hectare))+
+  geom_line()+
+  facet_wrap(vars(crop), scales = "free_y")+
+labs(
+  y= "Tonnes per hectare",
+  x= "Time(years)",
+  title ="Crop production in Australia"
+)
+```
+
+

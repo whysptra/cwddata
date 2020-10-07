@@ -15,4 +15,10 @@ Depends:
     R (>= 2.10)
 License: MIT + file LICENSE
 Imports: 
-    tibble
+    tibble,
+    ggplot2
+Suggests: 
+    knitr,
+    rmarkdown,
+    dplyr
+VignetteBuilder: knitr
