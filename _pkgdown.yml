@@ -16,3 +16,5 @@ reference:
 - title: Datasets
 desc: > 
  All datasets provided by the package
+contents:
+ - stack_normalise
